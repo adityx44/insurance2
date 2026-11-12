@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+
+  auth-service:
+    build: ./services/auth-service
+    container_name: auth-service
+    ports:
+      - "5000:5000"
+
+  user-service:
+    build: ./services/user-service
+    container_name: user-service
+    ports:
+      - "5001:5001"
+
+  policy-service:
+    build: ./services/policy-service
+    container_name: policy-service
+    ports:
+      - "5002:5002"
+
+  claim-service:
+    build: ./services/claim-service
+    container_name: claim-service
+    ports:
+      - "5003:5003"
+
+  recommendation-service:
+    build: ./services/recommendation-service
+    container_name: recommendation-service
+    ports:
+      - "5004:5004"

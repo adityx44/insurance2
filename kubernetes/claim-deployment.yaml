@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: claim-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: claim-service
+  template:
+    metadata:
+      labels:
+        app: claim-service
+    spec:
+      containers:
+      - name: claim-service
+        image: gayatrishelke2004/claim-service:latest
+        ports:
+        - containerPort: 8083
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://mysql-service:3306/insurance_db
